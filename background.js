@@ -1,0 +1,1 @@
+chrome.runtime.onMessage.addListener((r) => chrome.downloads.download({'url': r}));
