@@ -1,18 +1,20 @@
 {
 	"name": "Let's Get!",
 	"description": "Download those pesky raw files on Github!",
-	"manifest_version": 3,
-	"version": "0.0.1",
+	"manifest_version": 2,
+	"version": "0.0.2",
 	"background": {
-		"service_worker": "background.js"
+		"scripts": ["background.js"],
+		"persistent": true
 	},
 	"content_scripts": [
 		{
-			"matches": ["https://github.com/*/blob/*"],
+			"matches": ["*://github.com/*"],
 			"js": ["content_script.js"]
 		}
 	],
 	"permissions": [
-		"downloads"
+		"downloads",
+		"*://github.com/*"
 	]
 }

@@ -1,1 +1,5 @@
-chrome.runtime.onMessage.addListener((r) => chrome.downloads.download({'url': r}));
+chrome.runtime.onMessage.addListener(function (url) {
+    chrome.downloads.download({
+        'url': url
+    });
+});
