@@ -2,7 +2,7 @@
 	"name": "Let's Get!",
 	"description": "Download those pesky raw files on Github!",
 	"manifest_version": 2,
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": true
@@ -11,10 +11,19 @@
 		{
 			"matches": ["*://github.com/*"],
 			"js": ["content_script.js"]
+		},
+		{
+			"matches": ["*://gist.github.com/*"],
+			"js": ["gist_content_script.js"]
 		}
 	],
 	"permissions": [
 		"downloads",
-		"*://github.com/*"
-	]
+		"storage",
+		"*://github.com/*",
+		"*://gist.github.com/*"
+	],
+	"browser_action": {
+		"default_popup": "index.html"
+	}
 }

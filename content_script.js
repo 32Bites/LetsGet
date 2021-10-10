@@ -17,8 +17,18 @@ function run() {
         bar.insertBefore(el, bar.firstChild);
     }
 }
-document.addEventListener('pjax:success', function () {
-    run();
-});
 
-run();
+chrome.storage.sync.get('enabled', function(data) {
+    var enabled = data.enabled;
+    if (enabled === undefined) {
+        chrome.storage.sync.set({enabled: true}, null);
+        enabled = true;
+    }
+
+    if (enabled) {
+        document.addEventListener('pjax:success', function () {
+            run();
+        });
+        run();
+    }
+});
