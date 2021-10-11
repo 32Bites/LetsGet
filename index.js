@@ -1,10 +1,3 @@
-const my_page = document.getElementById('my_page');
-my_page.addEventListener('click', function () {
-    chrome.tabs.create({
-        url: my_page.getAttribute('href') ?? 'https://github.com/32Bites/'
-    });
-});
-
 const version = document.getElementById('version');
 version.innerText = "Let's Get v" + chrome.runtime.getManifest().version;
 
