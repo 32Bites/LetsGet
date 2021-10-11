@@ -6,7 +6,7 @@ function run() {
         if (doc.innerHTML.includes('Raw') && doc.parentElement.classList.contains('file-actions') && !doc.getAttribute('injected')) {
             const el = document.createElement('button');
             el.innerText = "Download";
-            el.onclick = function() {
+            el.onclick = function () {
                 chrome.runtime.sendMessage(window.location.protocol + window.location.host + doc.getAttribute('href'));
             };
             el.classList.add('btn', 'btn-sm');
@@ -18,10 +18,12 @@ function run() {
     }
 }
 
-chrome.storage.sync.get('enabled', function(data) {
+chrome.storage.sync.get('enabled', function (data) {
     var enabled = data.enabled;
     if (enabled === undefined) {
-        chrome.storage.sync.set({enabled: true}, null);
+        chrome.storage.sync.set({
+            enabled: true
+        }, null);
         enabled = true;
     }
 

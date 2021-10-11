@@ -1,27 +1,36 @@
-const enabled_box = document.getElementById('enabled');
+const my_page = document.getElementById('my_page');
+my_page.addEventListener('click', function () {
+    chrome.tabs.create({
+        url: my_page.getAttribute('href') ?? 'https://github.com/32Bites/'
+    });
+});
 
-chrome.storage.sync.get('enabled', function(data) {
+const version = document.getElementById('version');
+if (version.innerHTML === '') {
+    version.innerHTML = "Let's Get v" + chrome.runtime.getManifest().version;
+}
+
+const enabled_box = document.getElementById('enabled');
+chrome.storage.sync.get('enabled', function (data) {
     var enabled = false;
-    // I should clean this up.
-    if (data === undefined) {
-        chrome.storage.sync.set({enabled: true}, null);
+    if (data === undefined || data.enabled === undefined) {
+        chrome.storage.sync.set({
+            enabled: true
+        }, null);
         enabled = true;
     } else {
-        if (data.enabled === undefined) {
-            chrome.storage.sync.set({enabled: true}, null);
-            enabled = true;
-        } else {
-            enabled = data.enabled;
-        }
+        enabled_box = data.enabled;
     }
     if (enabled) enabled_box.setAttribute("checked", "");
 });
 
-enabled_box.addEventListener('click', function() {
-    chrome.storage.sync.get('enabled', function(data) {
+enabled_box.addEventListener('click', function () {
+    chrome.storage.sync.get('enabled', function (data) {
         var enabled = false;
         if (data === undefined || data.enabled === undefined) {
-            chrome.storage.sync.set({enabled: true});
+            chrome.storage.sync.set({
+                enabled: true
+            });
             enabled = true;
         } else {
             enabled = data.enabled;
@@ -29,6 +38,8 @@ enabled_box.addEventListener('click', function() {
 
         if (enabled) enabled_box.setAttribute("checked", "");
         // else enabled_box.removeAttribute("checked");
-        chrome.storage.sync.set({enabled: !enabled}, null);
+        chrome.storage.sync.set({
+            enabled: !enabled
+        }, null);
     });
 });

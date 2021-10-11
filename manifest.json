@@ -1,8 +1,9 @@
 {
 	"name": "Let's Get!",
+	"author": "Noah Shanaberger",
 	"description": "Download those pesky raw files on Github!",
 	"manifest_version": 2,
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": true
@@ -20,15 +21,27 @@
 	"permissions": [
 		"downloads",
 		"storage",
+		"tabs",
 		"*://github.com/*",
 		"*://gist.github.com/*"
 	],
 	"browser_action": {
-		"default_popup": "index.html"
+		"default_popup": "index.html",
+		"default_title": "Let's Get!",
+		"default_icon": {
+			"16": "icon_16.png",
+			"32": "icon_32.png",
+			"64": "icon_64.png"
+		}
 	},
 	"browser_specific_settings": {
 		"gecko": {
 			"id": "noah@thenoah.party"
 		}
+	},
+	"icons": {
+		"16": "icon_16.png",
+		"48": "icon_48.png",
+		"128": "icon_128.png"
 	}
 }

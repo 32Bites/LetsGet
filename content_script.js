@@ -18,10 +18,12 @@ function run() {
     }
 }
 
-chrome.storage.sync.get('enabled', function(data) {
+chrome.storage.sync.get('enabled', function (data) {
     var enabled = data.enabled;
     if (enabled === undefined) {
-        chrome.storage.sync.set({enabled: true}, null);
+        chrome.storage.sync.set({
+            enabled: true
+        }, null);
         enabled = true;
     }
 
