@@ -3,7 +3,7 @@
 	"author": "Noah Shanaberger",
 	"description": "Download those pesky raw files on Github!",
 	"manifest_version": 2,
-	"version": "0.0.7.1",
+	"version": "0.0.8",
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": true
@@ -25,15 +25,6 @@
 		"*://github.com/*",
 		"*://gist.github.com/*"
 	],
-	"browser_action": {
-		"default_popup": "index.html",
-		"default_title": "Let's Get!",
-		"default_icon": {
-			"16": "icon_16.png",
-			"32": "icon_32.png",
-			"64": "icon_64.png"
-		}
-	},
 	"browser_specific_settings": {
 		"gecko": {
 			"id": "{8129971f-42ae-4350-b191-b2ff190437c0}"
