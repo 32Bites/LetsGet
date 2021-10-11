@@ -10,7 +10,7 @@ chrome.storage.sync.get('enabled', function (data) {
         }, null);
         enabled = true;
     } else {
-        enabled_box = data.enabled;
+        enabled = data.enabled;
     }
     if (enabled) enabled_box.setAttribute("checked", "");
 });
