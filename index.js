@@ -6,9 +6,7 @@ my_page.addEventListener('click', function () {
 });
 
 const version = document.getElementById('version');
-if (version.innerHTML === '') {
-    version.innerHTML = "Let's Get v" + chrome.runtime.getManifest().version;
-}
+version.innerText = "Let's Get v" + chrome.runtime.getManifest().version;
 
 const enabled_box = document.getElementById('enabled');
 chrome.storage.sync.get('enabled', function (data) {

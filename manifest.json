@@ -3,7 +3,7 @@
 	"author": "Noah Shanaberger",
 	"description": "Download those pesky raw files on Github!",
 	"manifest_version": 2,
-	"version": "0.0.6",
+	"version": "0.0.6.1",
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": true
