@@ -12,7 +12,7 @@ A browser extension which will add a "download as raw" button to github files.
 ## How to install
 
 ### Firefox
-Download at the Mozilla Addon Store [[Here]](https://addons.mozilla.org/en-US/firefox/addon/let-s-get/).
+Download at the Mozilla Addon Store [[Here]](https://addons.mozilla.org/firefox/addon/let-s-get/).
 
 ### Chrome (until I'm able to get it on the web store)
 
